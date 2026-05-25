@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 30% 98%; /* Soft Creamy Beige */
+    --foreground: 222.2 84% 4.9%;
+    --primary: 162 100% 29%; /* Exact Custom Green from User */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 35 20% 94%; /* Deeper Beige for cards */
+    --muted: 35 10% 92%;
+    --accent: 162 100% 29%;
+    --radius: 1.5rem;
+    --border: 35 20% 90%;
+    --input: 35 20% 94%;
+    --ring: 162 100% 29%;
+  }
+
+  .dark {
+    --background: 162 30% 6%; /* Deep Dark Forest Green */
+    --foreground: 35 20% 98%;
+    --primary: 162 80% 45%;
+    --secondary: 162 20% 12%;
+    --muted: 162 20% 15%;
+    --border: 162 20% 18%;
+    --input: 162 20% 12%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .shadow-human {
+    box-shadow: 0 4px 20px -2px rgba(0, 150, 105, 0.05); /* Subtle Green shadow */
+  }
+  
+  .shadow-human-lg {
+    box-shadow: 0 10px 40px -4px rgba(0, 150, 105, 0.08); /* Subtle Green shadow */
+  }
+
+  .bg-warm-mesh {
+    background-image: radial-gradient(at 0% 0%, hsla(162, 100%, 29%, 0.02) 0, transparent 50%);
+  }
+
+  .mesh-emerald {
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(162, 100%, 29%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(162, 100%, 29%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsla(162, 100%, 29%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsla(162, 100%, 29%, 0.1) 0px, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  .text-fluid-h1 {
+    @apply text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black font-display tracking-tighter leading-[1.1];
+  }
+  
+  .text-fluid-h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight leading-tight;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40;
+}
